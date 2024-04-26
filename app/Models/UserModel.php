@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Foundation\Auth\User;
 
-class UserModel extends Model
+class UserModel extends User
 {
     protected $table = 'm_user'; //mendefinisikan nama tabel yang digunakan oleh model ini
     public $timestamps = false;
