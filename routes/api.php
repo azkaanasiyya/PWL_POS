@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\BarangController;
 use App\Http\Controllers\Api\KategoriController;
 use App\Http\Controllers\Api\LevelController;
+use App\Http\Controllers\Api\TransaksiController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -53,3 +54,6 @@ Route::post('/register1', App\Http\Controllers\Api\RegisterController::class)->n
 
 Route::post('/barang1',[BarangController::class, 'store'])->name('barang1');
 Route::get('/barang1/{barang}', [BarangController::class, 'show']);
+
+Route::post('transaksi', [TransaksiController::class, 'store'])->name('transaksi');
+Route::get('transaksi/{transaksi}', [TransaksiController::class, 'show']);

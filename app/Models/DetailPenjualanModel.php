@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 class DetailPenjualanModel extends Model
 {
     use HasFactory;
@@ -13,9 +15,14 @@ class DetailPenjualanModel extends Model
     protected $table = 't_penjualan_detail';
     protected $primaryKey = 'detail_id';
 
-    // @var array
-    protected $fillable = ['penjualan_id', 'barang_id', 'harga', 'jumlah'];
-    // protected $fillable = ['level_id', 'username', 'nama'];
+    protected $fillable = [
+        'detail_id',
+        'penjualan_id', 
+        'barang_id', 
+        'harga', 
+        'jumlah',
+        'image'
+    ];
 
     public function penjualan(): BelongsTo
     {
@@ -24,5 +31,12 @@ class DetailPenjualanModel extends Model
     public function barang(): BelongsTo
     {
         return $this->belongsTo(BarangModel::class, 'barang_id', 'barang_id');
+    }
+
+    protected function image(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($image) => url('/storage/posts/' . $image),
+        );
     }
 }
