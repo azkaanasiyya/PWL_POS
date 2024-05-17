@@ -50,3 +50,6 @@ Route::put('barangs/{barang}', [BarangController::class, 'update']);
 Route::delete('barangs/{barang}', [BarangController::class, 'destroy']);
 
 Route::post('/register1', App\Http\Controllers\Api\RegisterController::class)->name('register1');
+
+Route::post('/barang1',[BarangController::class, 'store'])->name('barang1');
+Route::get('/barang1/{barang}', [BarangController::class, 'show']);
