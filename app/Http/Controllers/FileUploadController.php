@@ -19,10 +19,13 @@ class FileUploadController extends Controller
             'berkas' => 'required|file|image|max:500'
         ]);
         $extfile = $request->berkas->getClientOriginalName();
-        $namaFile = 'web-'.time().".".$extfile;
-        $path = $request->berkas->storeAs('public', $namaFile);
+        $namaFile = 'web-' . time() . "." . $extfile;
 
-        $pathBaru = asset('storage/'.$namaFile);
+        $path = $request->berkas->storeAs('gambar', $namaFile);
+        $path = str_replace("\\", "//", $path);
+        echo "Variabel path berisi: $path <br>";
+
+        $pathBaru = asset('gambar/' . $namaFile);
         echo "proses upload berhasil, data disimpan pada: $path";
         echo "<br>";
         echo "Tampilkan link:<a href='$pathBaru'>$pathBaru</a>";
