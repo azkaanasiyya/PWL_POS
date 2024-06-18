@@ -33,7 +33,16 @@
             </div>
             <table class="table table-bordered table-striped table-hover table-sm" id="table_barang">
                 <thead>
-                    <tr><th>ID</th><th>Kode Barang</th><th>Kategori Barang</th><th>Nama Barang</th><th>Harga Beli</th><th>Harga Jual</th><th>Aksi</th></tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kode Barang</th>
+                        <th>Kategori Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Harga Beli</th>
+                        <th>Harga Jual</th>
+                        <th>Gambar</th>
+                        <th>Aksi</th>
+                    </tr>
                 </thead>
             </table>
         </div>
@@ -86,6 +95,14 @@
                         classname: "",
                         orderable: false, //orderable true jika ingin kolom bisa diurutkan
                         searchable: false //searchable true jika ingin kolom bisa dicari
+                    },{
+                        data: "image",
+                        classname: "",
+                        orderable: false, //orderable true jika ingin kolom bisa diurutkan
+                        searchable: false, //searchable true jika ingin kolom bisa dicari
+                        render: function(data, type, row) {
+                            return '<img src="' + data + '" alt="Image" class="img-thumbnail" width="100">';
+                        }
                     },{
                         data: "aksi",
                         classname: "",
